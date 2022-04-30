@@ -10,18 +10,8 @@ public class PetService
     {
         _context = context;
     }
-    public async Task<List<Pet>> GetAllPersons()
+    public async Task<List<Pet>> GetAllPets()
     {
-        
         return await _context.Pets.ToListAsync();
-    }
-    
-    public async Task IncrementAgeOfAnimal(int animalId)
-    {
-
-        var pet = await _context.Pets.FindAsync(animalId);
-        pet!.Age += 1;
-        _context.Pets.Update(pet);
-        await _context.SaveChangesAsync();
     }
 }

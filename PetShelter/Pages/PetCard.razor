@@ -1,0 +1,27 @@
+@using PetShelter.Data
+<div class="col-md-6 col-lg-3">
+    <div class="card" style="width: 18rem;">
+        <div class="card-block">
+            <img class="card-img-top" src=@Pet.Picture alt="Cool pet">
+            <div class="card-body">
+                <h5 class="card-title">@Pet.Name</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">@Pet.Type</li>
+            <li class="list-group-item">@Pet.Breed</li>
+            <li class="list-group-item">@Pet.Age</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Pet Pet { get; set; }
+}

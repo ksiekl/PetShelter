@@ -1,0 +1,35 @@
+@page "/PetDisplay"
+<h3>PetDisplay</h3>
+<PageTitle>View pets</PageTitle>
+@using PetShelter.Data
+
+@inject PetService PetService
+
+@if (pets == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            @foreach (var pet in pets)
+            {
+                <PetCard Pet=pet/>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    private List<Pet>? pets;
+    
+
+    protected override async Task OnInitializedAsync()
+    {
+        pets = await PetService.GetAllPets();
+    }
+
+}
