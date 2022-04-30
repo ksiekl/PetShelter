@@ -1,0 +1,16 @@
+@using PetShelter.Data
+@inject PetService PetService
+
+<button class="btn btn-primary" @onclick="OnClick">Age!</button>
+
+@code {
+    [Parameter] 
+    public int AnimalId { get; set; }
+
+    private async void OnClick()
+    {
+        await PetService.IncrementAgeOfAnimal(AnimalId);
+    }
+    
+    
+}
