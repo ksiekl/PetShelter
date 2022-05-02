@@ -1,15 +1,22 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetShelter.Data;
 
 public class Pet
 {
-    public virtual int Id { get; set; }
-    public virtual string Name { get; set; }
-    public virtual string Type { get; set; }
-    public virtual string Breed { get; set; }
-    public virtual int Age { get; set; }
-    public virtual int UserId { get; set; }
-    // public virtual User User { get; set; }
-    public virtual string Picture { get; set; }
+    
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
+    [Required]
+    public string Name { get; set; }
+    [Required]
+    public string Type { get; set; }
+
+    public string? Breed { get; set; } = "Unknown";
+    public int? Age { get; set; }
+    public string? UserId { get; set; }
+    public string Picture { get; set; } = "Pets/PhotoNotAvailable.jpg";
+    public string? Description { get; set; }
 }

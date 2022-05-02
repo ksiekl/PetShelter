@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WMxictygk63XbPfwIwAcV4PHjqC5HxC9AQ9Lmd+4pe4=",
+  "Hash": "BcY9Xn2TRHJZBgRzo2Qa5vMPIqBvBihaLthEy2k0KLk=",
   "Source": "PetShelter",
   "BasePath": "_content/PetShelter",
   "Mode": "Default",
@@ -1477,6 +1477,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/Pets/Dogs/Punto.jpg"
+    },
+    {
+      "Identity": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/Pets/PhotoNotAvailable.jpg",
+      "SourceId": "PetShelter",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/",
+      "BasePath": "_content/PetShelter",
+      "RelativePath": "Pets/PhotoNotAvailable.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Pets/PhotoNotAvailable.jpg"
     }
   ]
 }

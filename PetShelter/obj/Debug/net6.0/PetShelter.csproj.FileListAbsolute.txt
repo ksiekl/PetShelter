@@ -1,7 +1,6 @@
 /home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/appsettings.Development.json
 /home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/appsettings.json
 /home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/PetShelter.staticwebassets.runtime.json
-/home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/app.db
 /home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/PetShelter
 /home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/PetShelter.deps.json
 /home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/PetShelter.runtimeconfig.json
@@ -70,3 +69,5 @@
 /home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/es/BlazorTable.resources.dll
 /home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/fr/BlazorTable.resources.dll
 /home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/pt-BR/BlazorTable.resources.dll
+/home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/app.db
+/home/katarina/RiderProjects/PetShelter/PetShelter/bin/Debug/net6.0/Microsoft.AspNetCore.Components.DataAnnotations.Validation.dll

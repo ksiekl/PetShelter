@@ -14,4 +14,10 @@ public class PetService
     {
         return await _context.Pets.ToListAsync();
     }
+    
+    public async Task AddPet(Pet pet)
+    {
+        _context.Pets.Add(pet);
+        await _context.SaveChangesAsync();
+    }
 }

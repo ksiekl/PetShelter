@@ -9,6 +9,7 @@
       "PetShelter/1.0.0": {
         "dependencies": {
           "BlazorTable": "1.17.0",
+          "Microsoft.AspNetCore.Components.DataAnnotations.Validation": "3.2.0-rc1.20223.4",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.3",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.3",
           "Microsoft.AspNetCore.Identity.UI": "6.0.3",
@@ -81,6 +82,17 @@
         }
       },
       "Microsoft.AspNetCore.Components.Analyzers/3.1.18": {},
+      "Microsoft.AspNetCore.Components.DataAnnotations.Validation/3.2.0-rc1.20223.4": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Forms": "3.1.18"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.AspNetCore.Components.DataAnnotations.Validation.dll": {
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.200.20.22304"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Components.Forms/3.1.18": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.18"
@@ -541,6 +553,13 @@
       "sha512": "sha512-ac3tIKgI/qSgqVGjpGWBMrohROANxeKgWxNiNIEm9oE8tBEYtSv/25Vc2V1v6WMa2uzN9Hcbs1zX/bNjKkubeA==",
       "path": "microsoft.aspnetcore.components.analyzers/3.1.18",
       "hashPath": "microsoft.aspnetcore.components.analyzers.3.1.18.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.DataAnnotations.Validation/3.2.0-rc1.20223.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VyZAAbuXuAVrh4Vii5Aq1N841iVhSjE4mTf/lVh+AgrKinaltE0IeEWPKv889j4ineX7i9BUiAqlGP7UpZwlnQ==",
+      "path": "microsoft.aspnetcore.components.dataannotations.validation/3.2.0-rc1.20223.4",
+      "hashPath": "microsoft.aspnetcore.components.dataannotations.validation.3.2.0-rc1.20223.4.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Components.Forms/3.1.18": {
       "type": "package",

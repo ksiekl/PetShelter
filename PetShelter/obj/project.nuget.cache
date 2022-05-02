@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mJF/vlk2aXLhJTzbQ53tCgdNBRrSE94yZby5q81gaQyM/13j/oxnoattOKreCvw6zLK1m6V+UGDjo0tIbfj/mw==",
+  "dgSpecHash": "+w6TSoqXJIpcvI/PiIGanacf/ouRzx9bjPm/mQYE4HzYCB1U7RUcf1Rwtv9wL580j/tLEJb37lCOy9pkJazA4g==",
   "success": true,
   "projectFilePath": "/home/katarina/RiderProjects/PetShelter/PetShelter/PetShelter.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "/home/katarina/.nuget/packages/microsoft.aspnetcore.authorization/3.1.18/microsoft.aspnetcore.authorization.3.1.18.nupkg.sha512",
     "/home/katarina/.nuget/packages/microsoft.aspnetcore.components/3.1.18/microsoft.aspnetcore.components.3.1.18.nupkg.sha512",
     "/home/katarina/.nuget/packages/microsoft.aspnetcore.components.analyzers/3.1.18/microsoft.aspnetcore.components.analyzers.3.1.18.nupkg.sha512",
+    "/home/katarina/.nuget/packages/microsoft.aspnetcore.components.dataannotations.validation/3.2.0-rc1.20223.4/microsoft.aspnetcore.components.dataannotations.validation.3.2.0-rc1.20223.4.nupkg.sha512",
     "/home/katarina/.nuget/packages/microsoft.aspnetcore.components.forms/3.1.18/microsoft.aspnetcore.components.forms.3.1.18.nupkg.sha512",
     "/home/katarina/.nuget/packages/microsoft.aspnetcore.components.web/3.1.18/microsoft.aspnetcore.components.web.3.1.18.nupkg.sha512",
     "/home/katarina/.nuget/packages/microsoft.aspnetcore.cryptography.internal/6.0.3/microsoft.aspnetcore.cryptography.internal.6.0.3.nupkg.sha512",

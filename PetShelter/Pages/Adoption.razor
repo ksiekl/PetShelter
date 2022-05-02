@@ -1,0 +1,65 @@
+@page "/Adoption/{PetId:int}"
+@using PetShelter.Data
+@using Microsoft.EntityFrameworkCore.Infrastructure.Internal
+<h3>Adoption Request</h3>
+
+
+@inject PetService PetService
+@inject AdoptionService AdoptionService
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+@inject NavigationManager NavManager
+
+<EditForm Model="@_adoption" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary/>
+    <div class="col-3 row">
+        <div class="col-12 row p-3">
+            <label class="col-12 font-weight-bold">First name: </label>
+            <InputText class="form-control col-3" @bind-Value="_adoption.Forename" placeholder="First Name"/>
+        </div>
+        <br/>
+        <div class="col-12 row p-3">
+            <label class="col-12 font-weight-bold">Last name: </label>
+            <InputText class="form-control col-3" @bind-Value="_adoption.Surname" placeholder="Last Name"/>
+        </div>
+        <br/>
+        <div class="col-12 row p-3">
+            <label class="col-12 font-weight-bold">Date of pickup: </label>
+            <InputDate class="form-control col-3" @bind-Value="_adoption.DateOfPickup" placeholder="DD/MM/YYYY"/>
+        </div>
+        <br/>
+        <div class=" col-12 row p-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    <br/>
+
+</EditForm>
+
+
+@code {
+    private PetAdoption _adoption = new();
+
+    [Parameter]
+    public int PetId { get; set; }
+    public string UserId { get; set; }
+    
+    protected async override void OnInitialized()
+    {
+            var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
+            var userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
+            UserId = userId;
+        }
+
+    private async Task HandleValidSubmit()
+    {
+        _adoption.Status = Status.Requested;
+        _adoption.PetId = PetId;
+        _adoption.UserId = UserId;
+
+        await AdoptionService.AddAdoption(_adoption);
+        _adoption = new();
+        
+        NavManager.NavigateTo("/SuccessfulAdoption");
+    }
+}

@@ -1,0 +1,90 @@
+@page "/ThrowAways"
+<h3>Give pet into the care of shelter</h3>
+<PageTitle>Deliver pet</PageTitle>
+
+@using PetShelter.Data
+@using Microsoft.EntityFrameworkCore.Infrastructure.Internal
+<h3>Adoption Request</h3>
+
+
+@inject PetService PetService
+@inject AdoptionService AdoptionService
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+@inject NavigationManager NavManager
+@inject DeliveryService DeliveryService
+
+<EditForm Model="@_delivery" OnValidSubmit="@HandleValidSubmit">
+    <ObjectGraphDataAnnotationsValidator/>
+    <ValidationSummary/>
+    <div class="col-3 row">
+        <div class="col-12 row p-3">
+            <label class="col-12 font-weight-bold">Day of your delivery: </label>
+            <InputDate class="form-control col-3" @bind-Value="_delivery.DateOfDelivery"/>
+        </div>
+        <br/>
+        <div class="col-12 row p-3">
+            <label class="col-12 font-weight-bold">Name of pet: </label>
+            <InputText class="form-control col-3" @bind-Value="_delivery.NewPet.Name" placeholder="Dunčo"/>
+        </div>
+        <br/>
+        <div class="col-12 row p-3">
+            <label class="col-12 font-weight-bold">What kind of animal is your pet: </label>
+            <InputText class="form-control col-3" @bind-Value="_delivery.NewPet.Type"/>
+        </div>
+        <br/>
+        <div class="col-12 row p-3">
+            <label class="col-12 font-weight-bold">Breed: </label>
+            <InputText class="form-control col-3" @bind-Value="_delivery.NewPet.Breed" placeholder="Chiuaua"/>
+        </div>
+        <br/>
+        <div class="col-12 row p-3">
+            <label class="col-12 font-weight-bold">Age: </label>
+            <InputNumber class="form-control col-3" @bind-Value="_delivery.NewPet.Age" placeholder="10"/>
+        </div>
+        <br/>
+        <div class="col-12 row p-3">
+            <label class="col-12 font-weight-bold">Brief description of your pet: </label>
+            <InputText class="form-control col-3" @bind-Value="_delivery.NewPet.Description" placeholder="Has anxiety."/>
+        </div>
+        <br/>
+        <div class="col-12 row p-3">
+            <label class="col-12 font-weight-bold">Picture: </label>
+            <InputText class="form-control col-3" @bind-Value="_delivery.NewPet.Picture"/>
+        </div>
+        <br/>
+        <div class=" col-12 row p-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    <br/>
+
+</EditForm>
+
+
+@code {
+    private Delivery _delivery = new();
+
+    public string UserId { get; set; }
+
+    protected async override void OnInitialized()
+    {
+        _delivery.NewPet = new Pet();
+        var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
+        var userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
+        UserId = userId;
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        _delivery.Status = Status.Requested;
+        _delivery.UserId = UserId;
+        _delivery.NewPet.UserId = UserId;
+
+        // await PetService.AddPet(_delivery.NewPet);
+        await DeliveryService.AddDelivery(_delivery);
+        // _delivery = new();
+
+        NavManager.NavigateTo("/SuccessfulDelivery");
+    }
+
+}

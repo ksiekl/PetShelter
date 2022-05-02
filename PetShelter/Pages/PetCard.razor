@@ -1,22 +1,24 @@
 @using PetShelter.Data
-<div class="col-md-6 col-lg-3">
-    <div class="card" style="width: 18rem;">
+
+<div class="col-md-6 col-lg-3 mb-4">
+    <div class="card">
         <div class="card-block">
-            <img class="card-img-top" src=@Pet.Picture alt="Cool pet">
+            <img class="card-img-top img-fluid" src=@Pet.Picture alt="Cool pet" style="width: 100%; height: 15vw; object-fit: cover">
             <div class="card-body">
                 <h5 class="card-title">@Pet.Name</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">@Pet.Description</p>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Animal: @Pet.Type</li>
+                    <li class="list-group-item">Breed: @Pet.Breed</li>
+                    <li class="list-group-item">Age: @Pet.Age @(Pet.Age > 1 ? "years" : "year")</li>
+                </ul>
+                <div class="card-body text-right">
+                    <button type="button" class="btn btn-primary" onclick="location.href='/Adoption/@Pet.Id'">Adopt</button>
+                </div>
             </div>
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">@Pet.Type</li>
-            <li class="list-group-item">@Pet.Breed</li>
-            <li class="list-group-item">@Pet.Age</li>
-        </ul>
-        <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
+
 
     </div>
 </div>
@@ -24,4 +26,5 @@
 @code {
     [Parameter]
     public Pet Pet { get; set; }
+
 }

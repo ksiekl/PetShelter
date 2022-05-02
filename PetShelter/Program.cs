@@ -23,8 +23,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddScoped<PetService>();
+builder.Services.AddScoped<AdoptionService>();
+builder.Services.AddScoped<DeliveryService>();
 
-builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddBlazorTable();
 
 var app = builder.Build();
