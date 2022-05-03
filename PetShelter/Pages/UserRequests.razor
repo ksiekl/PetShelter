@@ -20,7 +20,7 @@ else
         <div class="row">
             @foreach (var pet in adoptions)
             {
-                <PetCard Pet=pet/>
+                <UserRequestsCard Pet=pet.Item1 Status=pet.Item2/>
             }
         </div>
     </div>
@@ -29,7 +29,7 @@ else
         <div class="row">
             @foreach (var pet in deliveries)
             {
-                <PetCard Pet=pet/>
+                <UserRequestsCard Pet=pet.Item1 Status=pet.Item2/>
             }
         </div>
     </div>
@@ -38,8 +38,8 @@ else
 @code {
 
     private string? _userId;
-    private List<Pet> adoptions;
-    private List<Pet> deliveries;
+    private List<Tuple<Pet, Status>> adoptions;
+    private List<Tuple<Pet, Status>> deliveries;
 
     
 
@@ -52,7 +52,5 @@ else
 
         deliveries = UserRequestsService.GetDeliveries(_userId);
     }
-
-   
 
 }

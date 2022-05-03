@@ -1,10 +1,15 @@
+@using PetShelter.Data
+
+@inject PetService PetService
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+@inject UserRequestsService UserRequestsService
+
+
 @page "/PetDisplay"
 @page "/"
 <h3>Pet Display</h3>
 <PageTitle>View pets</PageTitle>
-@using PetShelter.Data
 
-@inject PetService PetService
 
 @if (pets == null)
 {
@@ -18,6 +23,13 @@ else
         <div class="row">
             @foreach (var pet in pets)
             {
+                //If user already requested adoption of an animal,
+                //hide the card with the animal from Pet Display
+                var usersAdoptionRequests = UserRequestsService.GetAdoptions(userId);
+                if (usersAdoptionRequests.Select(animal => animal.Item1.Id).Contains(pet.Id))
+                {
+                    continue;
+                }
                 <PetCard Pet=pet/>
             }
         </div>
@@ -26,11 +38,12 @@ else
 
 @code {
     private List<Pet>? pets;
-    
+    private string? userId;    
 
     protected override async Task OnInitializedAsync()
     {
         pets = await PetService.GetAllPets();
+        var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
+        userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
     }
-
 }

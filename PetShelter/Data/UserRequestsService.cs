@@ -1,3 +1,5 @@
+using PetShelter.Pages;
+
 namespace PetShelter.Data;
 
 public class UserRequestsService
@@ -8,22 +10,39 @@ public class UserRequestsService
     {
         _context = context;
     }
-    
-    public List<Pet> GetAdoptions(string? userId)
+
+    public List<Tuple<Pet, Status>> GetAdoptions(string? userId)
     {
         var usersAdoptions = _context.Adoptions
             .Where(adoption => adoption.UserId == userId)
-            .Join(_context.Pets, adoption => adoption.PetId, pet => pet.Id, (adoption, pet) => pet)
+            .Join(_context.Pets, adoption => adoption.PetId, pet => pet.Id, (adoption, pet) => new Tuple<Pet, Status>(pet, adoption.Status))
             .ToList();
         return usersAdoptions;
     }
 
-    public List<Pet> GetDeliveries(string? userId)
+    public List<Tuple<Pet, Status>> GetDeliveries(string? userId)
     {
         var userDeliveries = _context.Deliveries
             .Where(delivery => delivery.UserId == userId)
-            .Join(_context.Pets, delivery => delivery.NewPetId, pet => pet.Id, (delivery, pet) => pet)
+            .Join(_context.Pets, delivery => delivery.NewPetId, pet => pet.Id, (delivery, pet) => new Tuple<Pet, Status>(pet, delivery.Status))
             .ToList();
         return userDeliveries;
+    }
+
+    public Status GetRequestStatus<T>(T request)
+    {
+        if (request?.GetType() == typeof(PetAdoption))
+        {
+            var req = request as PetAdoption;
+            return req!.Status;
+        }
+
+        if (request?.GetType() == typeof(Delivery))
+        {
+            var del = request as Delivery;
+            return del!.Status;
+        }
+
+        return Status.Unknown;
     }
 }

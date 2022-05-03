@@ -55,6 +55,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlclJlcXVlc3RzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/katarina/RiderProjects/PetShelter/PetShelter/Pages/UserRequestsCard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlclJlcXVlc3RzQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/katarina/RiderProjects/PetShelter/PetShelter/Shared/LoginDisplay.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0xvZ2luRGlzcGxheS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

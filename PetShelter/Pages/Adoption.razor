@@ -9,6 +9,7 @@
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject NavigationManager NavManager
 
+
 <EditForm Model="@_adoption" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator/>
     <ValidationSummary/>
@@ -53,6 +54,7 @@
 
     protected async override void OnInitialized()
     {
+        
         var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
         var userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
         UserId = userId;
