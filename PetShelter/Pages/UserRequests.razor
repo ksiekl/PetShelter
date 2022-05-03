@@ -1,0 +1,58 @@
+@page "/UserRequests"
+@using PetShelter.Data
+
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+@inject UserRequestsService UserRequestsService
+
+<h2>My Requests</h2>
+
+
+@if (adoptions == null || deliveries == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <h3>Adoptions</h3>
+    <div class="container">
+        <div class="row">
+            @foreach (var pet in adoptions)
+            {
+                <PetCard Pet=pet/>
+            }
+        </div>
+    </div>
+    <h3>Deliveries</h3>
+    <div class="container">
+        <div class="row">
+            @foreach (var pet in deliveries)
+            {
+                <PetCard Pet=pet/>
+            }
+        </div>
+    </div>
+}
+
+@code {
+
+    private string? _userId;
+    private List<Pet> adoptions;
+    private List<Pet> deliveries;
+
+    
+
+    protected override async Task OnInitializedAsync()
+    {
+        var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
+        _userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
+
+        adoptions = UserRequestsService.GetAdoptions(_userId);
+
+        deliveries = UserRequestsService.GetDeliveries(_userId);
+    }
+
+   
+
+}

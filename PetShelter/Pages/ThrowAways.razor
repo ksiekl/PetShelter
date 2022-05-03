@@ -81,6 +81,7 @@
         _delivery.NewPet.UserId = UserId;
 
         // await PetService.AddPet(_delivery.NewPet);
+        //aj tak sa nepotvrdene deliveries stale pridavaju do dbs?!
         await DeliveryService.AddDelivery(_delivery);
         // _delivery = new();
 

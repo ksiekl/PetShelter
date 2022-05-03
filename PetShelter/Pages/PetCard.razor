@@ -11,7 +11,9 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Animal: @Pet.Type</li>
                     <li class="list-group-item">Breed: @Pet.Breed</li>
-                    <li class="list-group-item">Age: @Pet.Age @(Pet.Age > 1 ? "years" : "year")</li>
+                    <li class="list-group-item">
+                        Age: @Pet.Age @AgeToShow
+                    </li>
                 </ul>
                 <div class="card-body text-right">
                     <button type="button" class="btn btn-primary" onclick="location.href='/Adoption/@Pet.Id'">Adopt</button>
@@ -24,7 +26,20 @@
 </div>
 
 @code {
+
     [Parameter]
     public Pet Pet { get; set; }
+
+    public string? AgeToShow;
+
+    protected override void OnInitialized()
+    {
+        AgeToShow = Pet.Age switch
+        {
+            null => "Unknown",
+            > 1 => "years",
+            _ => "year"
+            };
+    }
 
 }

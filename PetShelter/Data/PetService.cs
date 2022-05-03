@@ -20,4 +20,9 @@ public class PetService
         _context.Pets.Add(pet);
         await _context.SaveChangesAsync();
     }
+    
+    public Pet GetOnePet(int petId)
+    {
+        return Enumerable.FirstOrDefault(_context.Pets, pet => pet.Id == petId)!;
+    }
 }

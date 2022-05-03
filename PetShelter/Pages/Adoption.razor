@@ -4,32 +4,37 @@
 <h3>Adoption Request</h3>
 
 
-@inject PetService PetService
+@inject PetService PetServicee
 @inject AdoptionService AdoptionService
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject NavigationManager NavManager
 
 <EditForm Model="@_adoption" OnValidSubmit="@HandleValidSubmit">
-    <DataAnnotationsValidator />
+    <DataAnnotationsValidator/>
     <ValidationSummary/>
-    <div class="col-3 row">
-        <div class="col-12 row p-3">
-            <label class="col-12 font-weight-bold">First name: </label>
-            <InputText class="form-control col-3" @bind-Value="_adoption.Forename" placeholder="First Name"/>
+    <div class="row">
+        <div class="col-3 row">
+            <div class="col-12 row p-3">
+                <label class="col-12 font-weight-bold">First name: </label>
+                <InputText class="form-control col-3" @bind-Value="_adoption.Forename" placeholder="First Name"/>
+            </div>
+            <br/>
+            <div class="col-12 row p-3">
+                <label class="col-12 font-weight-bold">Last name: </label>
+                <InputText class="form-control col-3" @bind-Value="_adoption.Surname" placeholder="Last Name"/>
+            </div>
+            <br/>
+            <div class="col-12 row p-3">
+                <label class="col-12 font-weight-bold">Date of pickup: </label>
+                <InputDate class="form-control col-3" @bind-Value="_adoption.DateOfPickup" placeholder="DD/MM/YYYY"/>
+            </div>
+            <br/>
+            <div class=" col-12 row p-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </div>
-        <br/>
-        <div class="col-12 row p-3">
-            <label class="col-12 font-weight-bold">Last name: </label>
-            <InputText class="form-control col-3" @bind-Value="_adoption.Surname" placeholder="Last Name"/>
-        </div>
-        <br/>
-        <div class="col-12 row p-3">
-            <label class="col-12 font-weight-bold">Date of pickup: </label>
-            <InputDate class="form-control col-3" @bind-Value="_adoption.DateOfPickup" placeholder="DD/MM/YYYY"/>
-        </div>
-        <br/>
-        <div class=" col-12 row p-3">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="col-3 row">
+            <img class="mx-auto row img-fluid" src=@pet.Picture alt="Cool pet" style="width: 100%; object-fit: cover">
         </div>
     </div>
     <br/>
@@ -42,14 +47,17 @@
 
     [Parameter]
     public int PetId { get; set; }
+
     public string UserId { get; set; }
-    
+    public Pet pet = new();
+
     protected async override void OnInitialized()
     {
-            var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
-            var userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
-            UserId = userId;
-        }
+        var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
+        var userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
+        UserId = userId;
+        pet = PetServicee.GetOnePet(PetId);
+    }
 
     private async Task HandleValidSubmit()
     {
@@ -59,7 +67,8 @@
 
         await AdoptionService.AddAdoption(_adoption);
         _adoption = new();
-        
+
         NavManager.NavigateTo("/SuccessfulAdoption");
     }
+
 }

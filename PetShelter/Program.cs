@@ -8,6 +8,7 @@ using PetShelter.Areas.Identity;
 using PetShelter.Data;
 using BlazorTable;
 using Microsoft.Extensions.FileProviders;
+using PetShelter.Pages;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +26,8 @@ builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuth
 builder.Services.AddScoped<PetService>();
 builder.Services.AddScoped<AdoptionService>();
 builder.Services.AddScoped<DeliveryService>();
+builder.Services.AddScoped<UserRequestsService>();
+builder.Services.AddScoped<UserRequests>();
 
 builder.Services.AddBlazorTable();
 

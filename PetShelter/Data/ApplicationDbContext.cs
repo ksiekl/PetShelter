@@ -30,20 +30,10 @@ public class ApplicationDbContext : IdentityDbContext
         });
         modelBuilder.Entity<Pet>().HasData(new List<Pet>
         {
+            
             new Pet()
             {
                 Id = 1,
-                Name = "Jerry",
-                Type = "Doggo",
-                Breed = "Cavalier",
-                Age = 1,
-                Picture = "Pets/Dogs/Jerry.jpg",
-                UserId = "1",
-                Description = "Likes arson a little too much."
-            },
-            new Pet()
-            {
-                Id = 2,
                 Name = "Bruno",
                 Type = "Dog",
                 Breed = "BadBoi",
@@ -54,19 +44,7 @@ public class ApplicationDbContext : IdentityDbContext
             },
             new Pet()
             {
-                Id = 3,
-                Name = "Punťo",
-                Type = "Dog",
-                Breed = "GoodBoi",
-                Age = 14,
-                Picture = "Pets/Dogs/Punto.jpg",
-                UserId = "1",
-                Description = "Eats your house."
-
-            },
-            new Pet()
-            {
-                Id = 4,
+                Id = 2,
                 Name = "Cuki",
                 Type = "Cat",
                 Breed = "StreetSmart",
@@ -78,7 +56,21 @@ public class ApplicationDbContext : IdentityDbContext
             },
             new Pet()
             {
-                Id = 5,
+                Id = 3,
+                Name = "Punťo",
+                Type = "Dog",
+                Breed = "GoodBoi",
+                Age = 14,
+                Picture = "Pets/Dogs/Punto.jpg",
+                UserId = "1",
+                Description = "Will share a spliff."
+
+            },
+            
+            
+            new Pet()
+            {
+                Id = 4,
                 Name = "Pacco",
                 Type = "Bird",
                 Breed = "Parrot",
@@ -90,24 +82,65 @@ public class ApplicationDbContext : IdentityDbContext
             },
             new Pet()
             {
-                Id = 6,
-                Name = "Cuki",
-                Type = "Cat",
+                Id = 5,
+                Name = "Jerry",
+                Type = "Doggo",
                 Breed = "Cavalier",
                 Age = 1,
                 Picture = "Pets/Dogs/Jerry.jpg",
                 UserId = "1",
                 Description = "Likes arson a little too much."
+            },
+            new Pet()
+            {
+                Id = 6,
+                Name = "Tono",
+                Type = "Cat",
+                Breed = "Street Mix",
+                Age = 1,
+                Picture = "Pets/Cats/Tono.jpeg",
+                UserId = "1",
+                Description = "Prefers to be called Antonio."
 
             },
             new Pet()
             {
                 Id = 7,
-                Name = "Cuki",
-                Type = "Cat",
-                Picture = "Pets/Dogs/Jerry.jpg",
+                Name = "Tweety",
+                Type = "Bird",
+                Picture = "Pets/Birds/Tweety.jpg",
                 UserId = "1",
-                Description = "Likes arson a little too much."
+                Description = "Cheeky little rascal."
+
+            },
+            new Pet()
+            {
+                Id = 8,
+                Name = "Pepe",
+                Type = "Cat",
+                Picture = "Pets/Cats/Pepe.jpeg",
+                UserId = "1",
+                Description = "Understands spanish commands."
+
+            },
+            new Pet()
+            {
+                Id = 9,
+                Name = "Minnie",
+                Type = "Bird",
+                Picture = "Pets/Birds/Minnie.jpg",
+                UserId = "1",
+                Description = "Has intrusive thoughts."
+
+            },
+            new Pet()
+            {
+                Id = 10,
+                Name = "Pancake",
+                Type = "Cat",
+                Picture = "Pets/Cats/Pancake.jpeg",
+                UserId = "1",
+                Description = "Tries to hold the darkness in, usually succeeds."
 
             },
         });
