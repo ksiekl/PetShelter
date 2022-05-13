@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qnWsuR3L0aGImEpMLOF6v8Sfo0BfT93PAHuTX6P3/Fw=",
+  "Hash": "PLBl3PyYfzEM5dXnf9TGRcazeOwZW5A6krhiU1iD2BA=",
   "Source": "PetShelter",
   "BasePath": "_content/PetShelter",
   "Mode": "Default",
@@ -1564,6 +1564,23 @@
       "OriginalItemSpec": "wwwroot/Pets/Dogs/Punto.jpg"
     },
     {
+      "Identity": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/Pets/PawIcon.png",
+      "SourceId": "PetShelter",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/",
+      "BasePath": "_content/PetShelter",
+      "RelativePath": "Pets/PawIcon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Pets/PawIcon.png"
+    },
+    {
       "Identity": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/Pets/PhotoNotAvailable.jpg",
       "SourceId": "PetShelter",
       "SourceType": "Discovered",
@@ -1579,6 +1596,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/Pets/PhotoNotAvailable.jpg"
+    },
+    {
+      "Identity": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/Pets/promo.jpeg",
+      "SourceId": "PetShelter",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/",
+      "BasePath": "_content/PetShelter",
+      "RelativePath": "Pets/promo.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Pets/promo.jpeg"
+    },
+    {
+      "Identity": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/Pets/promo2.jpeg",
+      "SourceId": "PetShelter",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/",
+      "BasePath": "_content/PetShelter",
+      "RelativePath": "Pets/promo2.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Pets/promo2.jpeg"
+    },
+    {
+      "Identity": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/Pets/promo3.jpeg",
+      "SourceId": "PetShelter",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/",
+      "BasePath": "_content/PetShelter",
+      "RelativePath": "Pets/promo3.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Pets/promo3.jpeg"
     }
   ]
 }

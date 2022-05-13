@@ -19,6 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
@@ -28,6 +29,8 @@ builder.Services.AddScoped<AdoptionService>();
 builder.Services.AddScoped<DeliveryService>();
 builder.Services.AddScoped<UserRequestsService>();
 builder.Services.AddScoped<UserRequests>();
+builder.Services.AddScoped<PendingRequestsService>();
+builder.Services.AddScoped<PendingRequests>();
 
 builder.Services.AddBlazorTable();
 

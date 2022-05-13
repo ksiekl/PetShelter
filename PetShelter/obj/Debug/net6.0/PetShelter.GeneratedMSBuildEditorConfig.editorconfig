@@ -19,16 +19,24 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/katarina/RiderProjects/PetShelter/PetShelter/Pages/About.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWJvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/katarina/RiderProjects/PetShelter/PetShelter/Pages/Adoption.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRvcHRpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/katarina/RiderProjects/PetShelter/PetShelter/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/katarina/RiderProjects/PetShelter/PetShelter/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/katarina/RiderProjects/PetShelter/PetShelter/Pages/PendingRequestCard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGVuZGluZ1JlcXVlc3RDYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/katarina/RiderProjects/PetShelter/PetShelter/Pages/PendingRequests.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGVuZGluZ1JlcXVlc3RzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/katarina/RiderProjects/PetShelter/PetShelter/Pages/PetCard.razor]

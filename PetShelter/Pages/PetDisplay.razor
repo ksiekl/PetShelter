@@ -6,8 +6,7 @@
 
 
 @page "/PetDisplay"
-@page "/"
-<h3>Pet Display</h3>
+
 <PageTitle>View pets</PageTitle>
 
 
@@ -38,7 +37,7 @@ else
 
 @code {
     private List<Pet>? pets;
-    private string? userId;    
+    private string? userId;
 
     protected override async Task OnInitializedAsync()
     {
@@ -46,4 +45,5 @@ else
         var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
         userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
     }
+
 }

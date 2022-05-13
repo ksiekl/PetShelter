@@ -1,9 +1,59 @@
 ﻿@page "/index"
+@page "/"
 
-<PageTitle>Index</PageTitle>
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider 
 
-<h1>Hello, world!</h1>
+<PageTitle>PetShelter</PageTitle>
 
-Welcome to your new app.
+<header>
+    <img style="float: left; width: 3%" src="Pets/PawIcon.png"/>
+    <img style="float: right; width: 3%" src="Pets/PawIcon.png"/>
+    <h1 class="text-center">Pet Shelter</h1>
+</header>
 
-<SurveyPrompt Title="How is Blazor working for you?"/>
+<br/>
+
+<div class="row text-center">
+    <div class="col-12">
+        <img class="card-img-top img-fluid" src="Pets/promo.jpeg" style="width: 30%">
+        <img class="card-img-top img-fluid" src="Pets/promo3.jpeg" style="width: 25%">
+        <img class="card-img-top img-fluid" src="Pets/promo2.jpeg" style="width: 30%">
+    </div>
+</div>
+
+<br/>
+<br/>
+
+<div class="container">
+    <div class='container'>
+        <div class="row">
+            <div class="col-lg-4 text-center">
+                <fieldset class="border p-2">
+                    <legend class="float-none col-lg-6">Our Building</legend>
+                    <p>Main St., PSC</p>
+                    <p>Your Country</p>
+                    <p>Anytown</p>
+                    <p>Anystate</p>
+                </fieldset>
+            </div>
+            <div class="col-lg-4 text-center">
+                <fieldset class="border p-2">
+                    <legend class="float-none col-lg-9">Open hours for visitors</legend>
+                    <p>Mon 8 AM - 2 PM</p>
+                    <p>Tue 8 AM - 2 PM</p>
+                    <p>Wed 8 AM - 2 PM</p>
+                    <p>Thu 8 AM - 2 PM</p>
+                    <p>Fri 8 AM - 1 PM</p>
+                </fieldset>
+            </div>
+            <div class="col-lg-4 text-center">
+                <fieldset class="border p-2">
+                    <legend class="float-none col-lg-5">Contact</legend>
+                    <p>Phone: +420 123 456 789</p>
+                    <p>Mail: example@mail.com</p>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

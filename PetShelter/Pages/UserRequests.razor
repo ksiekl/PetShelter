@@ -4,6 +4,7 @@
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject UserRequestsService UserRequestsService
 
+
 <h2>My Requests</h2>
 
 
@@ -18,6 +19,12 @@ else
     <h3>Adoptions</h3>
     <div class="container">
         <div class="row">
+            @if (adoptions.Count == 0)
+            {
+                <p>
+                    There are no requested adoptions.
+                </p>
+            }
             @foreach (var pet in adoptions)
             {
                 <UserRequestsCard Pet=pet.Item1 Status=pet.Item2/>
@@ -27,6 +34,12 @@ else
     <h3>Deliveries</h3>
     <div class="container">
         <div class="row">
+            @if (deliveries.Count == 0)
+            {
+                <p>
+                    There are no requested deliveries.
+                </p>
+            }
             @foreach (var pet in deliveries)
             {
                 <UserRequestsCard Pet=pet.Item1 Status=pet.Item2/>
@@ -41,7 +54,6 @@ else
     private List<Tuple<Pet, Status>> adoptions;
     private List<Tuple<Pet, Status>> deliveries;
 
-    
 
     protected override async Task OnInitializedAsync()
     {
