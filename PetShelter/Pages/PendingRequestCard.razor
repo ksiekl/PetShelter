@@ -1,5 +1,6 @@
 @using PetShelter.Data
 @inject PendingRequestsService PendingRequestsService
+@inject PendingRequests PendingRequests
 
 <div class="col-md-6 col-lg-3 mb-4" xmlns="http://www.w3.org/1999/html">
     <div class="card">
@@ -53,6 +54,9 @@
 
     [Parameter]
     public bool Decide { get; set; }
+
+    [Parameter]
+    public Action UpdatePage { get; set; }
     
     public string? AgeToShow;
 
@@ -72,13 +76,12 @@
         {
             Adoption.Status = status;
             await PendingRequestsService.UpdateAdoptions(Adoption);
-            StateHasChanged();
+            UpdatePage();
             return;
         }
         Delivery!.Status = status;
         await PendingRequestsService.UpdateDeliveries(Delivery);
-        StateHasChanged();
-
+        UpdatePage();
     }
 
 }

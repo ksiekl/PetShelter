@@ -19,7 +19,7 @@
         }
         @foreach (var adoption in requestedAdoptions)
         {
-            <PendingRequestCard Pet=@adoption.Item1 Adoption=@adoption.Item2 Decide=@true/>
+            <PendingRequestCard Pet=@adoption.Item1 Adoption=@adoption.Item2 Decide=@true UpdatePage=@UpdatePage/>
         }
     </div>
 </div>
@@ -34,7 +34,7 @@
         }
         @foreach (var delivery in requestedDeliveries)
         {
-            <PendingRequestCard Pet=@delivery.Item1 Delivery=@delivery.Item2 Decide=@true/>
+            <PendingRequestCard Pet=@delivery.Item1 Delivery=@delivery.Item2 Decide=@true UpdatePage=@UpdatePage/>
         }
     </div>
 </div>
@@ -49,7 +49,7 @@
         }
         @foreach (var adoption in acceptedAdoptions)
         {
-            <PendingRequestCard Pet=@adoption.Item1 Adoption=@adoption.Item2 Decide=@false/>
+            <PendingRequestCard Pet=@adoption.Item1 Adoption=@adoption.Item2 Decide=@false UpdatePage=@UpdatePage/>
         }
     </div>
 </div>
@@ -64,7 +64,7 @@
         }
         @foreach (var delivery in acceptedDeliveries)
         {
-            <PendingRequestCard Pet=@delivery.Item1 Delivery=@delivery.Item2 Decide=@false/>
+            <PendingRequestCard Pet=@delivery.Item1 Delivery=@delivery.Item2 Decide=@false UpdatePage=@UpdatePage/>
         }
     </div>
 </div>
@@ -80,11 +80,17 @@
 
     protected override Task OnInitializedAsync()
     {
+        UpdatePage();
+        return Task.CompletedTask;
+    }
+
+    public void UpdatePage()
+    {
         requestedAdoptions = PendingRequestsService.GetRequestedAdoptions();
         requestedDeliveries = PendingRequestsService.GetRequestedDeliveries();
         acceptedAdoptions = PendingRequestsService.GetAcceptedAdoptions();
         acceptedDeliveries = PendingRequestsService.GetAcceptedDeliveries();
-        return Task.CompletedTask;
-    }
+        StateHasChanged();
 
+    }
 }
