@@ -5,6 +5,5 @@ public enum Status
     Requested,
     Accepted,
     Declined,
-    Finished,
-    Unknown
+    Finished
 }

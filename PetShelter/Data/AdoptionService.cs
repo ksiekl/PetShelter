@@ -1,5 +1,3 @@
-using PetShelter.Pages;
-
 namespace PetShelter.Data;
 
 public class AdoptionService

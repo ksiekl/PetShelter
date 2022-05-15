@@ -8,22 +8,22 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
-        <None Include="wwwroot\Pets\Birds\Pacco.jpeg" />
-        <None Include="wwwroot\Pets\Cats\Lusia.jpg" />
-        <None Include="wwwroot\Pets\Dogs\Bruno.jpeg" />
-        <None Include="wwwroot\Pets\Dogs\Jerry.jpg" />
-        <None Include="wwwroot\Pets\Dogs\Punto.jpg" />
+        <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true"/>
+        <None Include="wwwroot\Pets\Birds\Pacco.jpeg"/>
+        <None Include="wwwroot\Pets\Cats\Lusia.jpg"/>
+        <None Include="wwwroot\Pets\Dogs\Bruno.jpeg"/>
+        <None Include="wwwroot\Pets\Dogs\Jerry.jpg"/>
+        <None Include="wwwroot\Pets\Dogs\Punto.jpg"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="BlazorTable" Version="1.17.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.DataAnnotations.Validation" Version="3.2.0-rc1.20223.4" />
-        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.3" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.3" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.3" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.3" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.3" />
+        <PackageReference Include="BlazorTable" Version="1.17.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.DataAnnotations.Validation" Version="3.2.0-rc1.20223.4"/>
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.3"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.3"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.3"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.3"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.3"/>
     </ItemGroup>
 
 </Project>

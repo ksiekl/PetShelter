@@ -21,15 +21,15 @@ main[b-31o2j9v1mu] {
     align-items: center;
 }
 
-    .top-row[b-31o2j9v1mu]  a, .top-row .btn-link[b-31o2j9v1mu] {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-    }
+.top-row[b-31o2j9v1mu]  a, .top-row .btn-link[b-31o2j9v1mu] {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+}
 
-    .top-row a:first-child[b-31o2j9v1mu] {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+.top-row a:first-child[b-31o2j9v1mu] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth)[b-31o2j9v1mu] {

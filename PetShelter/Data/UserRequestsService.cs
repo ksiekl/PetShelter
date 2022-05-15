@@ -1,5 +1,3 @@
-using PetShelter.Pages;
-
 namespace PetShelter.Data;
 
 public class UserRequestsService
@@ -15,7 +13,8 @@ public class UserRequestsService
     {
         var usersAdoptions = _context.Adoptions
             .Where(adoption => adoption.UserId == userId)
-            .Join(_context.Pets, adoption => adoption.PetId, pet => pet.Id, (adoption, pet) => new Tuple<Pet, Status>(pet, adoption.Status))
+            .Join(_context.Pets, adoption => adoption.PetId, pet => pet.Id,
+                (adoption, pet) => new Tuple<Pet, Status>(pet, adoption.Status))
             .ToList();
         return usersAdoptions;
     }
@@ -24,7 +23,8 @@ public class UserRequestsService
     {
         var userDeliveries = _context.Deliveries
             .Where(delivery => delivery.UserId == userId)
-            .Join(_context.Pets, delivery => delivery.NewPetId, pet => pet.Id, (delivery, pet) => new Tuple<Pet, Status>(pet, delivery.Status))
+            .Join(_context.Pets, delivery => delivery.NewPetId, pet => pet.Id,
+                (delivery, pet) => new Tuple<Pet, Status>(pet, delivery.Status))
             .ToList();
         return userDeliveries;
     }

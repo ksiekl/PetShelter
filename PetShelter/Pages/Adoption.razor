@@ -1,6 +1,5 @@
 @page "/Adoption/{PetId:int}"
 @using PetShelter.Data
-@using Microsoft.EntityFrameworkCore.Infrastructure.Internal
 <h3>Adoption Request</h3>
 
 
@@ -35,7 +34,7 @@
             </div>
         </div>
         <div class="col-3 row">
-            <img class="mx-auto row img-fluid" src=@pet.Picture alt="Cool pet" style="width: 100%; object-fit: cover">
+            <img class="mx-auto row img-fluid" src="@pet.Picture" alt="Cool pet" style="width: 100%; object-fit: cover">
         </div>
     </div>
     <br/>
@@ -52,9 +51,8 @@
     public string UserId { get; set; }
     public Pet pet = new();
 
-    protected async override void OnInitialized()
+    protected override async void OnInitialized()
     {
-        
         var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
         var userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
         UserId = userId;
@@ -68,7 +66,7 @@
         _adoption.UserId = UserId;
 
         await AdoptionService.AddAdoption(_adoption);
-        _adoption = new();
+        _adoption = new PetAdoption();
 
         NavManager.NavigateTo("/SuccessfulAdoption");
     }

@@ -1,11 +1,10 @@
-@using PetShelter.Data
-
 @inject PetService PetService
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject UserRequestsService UserRequestsService
 
 
 @page "/PetDisplay"
+@using PetShelter.Data
 
 <PageTitle>View pets</PageTitle>
 
@@ -39,17 +38,16 @@ else
     private string? userId;
 
     private List<Tuple<Pet, Status>> usersAdoptionRequests;
+
     protected override async Task OnInitializedAsync()
     {
-
         pets = await PetService.GetAvailablePets();
         var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
         userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
-        
+
         usersAdoptionRequests = UserRequestsService
             .GetAdoptions(userId)
             .Where(p => p.Item2 != Status.Declined).ToList();
-
     }
 
 }
