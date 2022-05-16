@@ -16,7 +16,7 @@ public class PetService
         return await _context.Pets.ToListAsync();
     }
 
-    public async Task<List<Pet>> GetAvailablePets()
+    public Task<List<Pet>> GetAvailablePets()
     {
         var deliveredPets = _context.Pets
             .Join(_context.Deliveries, pet => pet.Id, delivery => delivery.NewPetId,
@@ -35,7 +35,7 @@ public class PetService
             .ToHashSet();
 
         deliveredPets.ExceptWith(adoptedPets);
-        return deliveredPets.ToList();
+        return Task.FromResult(deliveredPets.ToList());
     }
 
     public async Task AddPet(Pet pet)

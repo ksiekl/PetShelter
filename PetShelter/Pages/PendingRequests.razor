@@ -1,9 +1,6 @@
 @page "/PendingRequests"
 @using PetShelter.Data
 
-@inject AuthenticationStateProvider GetAuthenticationStateAsync
-@inject UserRequestsService UserRequestsService
-@inject PetService PetService
 @inject PendingRequestsService PendingRequestsService
 
 
@@ -11,13 +8,13 @@
 <h3>Requested Adoptions</h3>
 <div class="container">
     <div class="row">
-        @if (requestedAdoptions.Count == 0)
+        @if (_requestedAdoptions!.Count == 0)
         {
             <p>
                 There are no requested adoptions.
             </p>
         }
-        @foreach (var adoption in requestedAdoptions)
+        @foreach (var adoption in _requestedAdoptions)
         {
             <PendingRequestCard Pet=@adoption.Item1 Adoption=@adoption.Item2 Decide=@true UpdatePage=@UpdatePage/>
         }
@@ -26,13 +23,13 @@
 <h3>Requested Deliveries</h3>
 <div class="container">
     <div class="row">
-        @if (requestedDeliveries.Count == 0)
+        @if (_requestedDeliveries!.Count == 0)
         {
             <p>
                 There are no requested deliveries.
             </p>
         }
-        @foreach (var delivery in requestedDeliveries)
+        @foreach (var delivery in _requestedDeliveries)
         {
             <PendingRequestCard Pet=@delivery.Item1 Delivery=@delivery.Item2 Decide=@true UpdatePage=@UpdatePage/>
         }
@@ -41,13 +38,13 @@
 <h3>Accepted Adoptions</h3>
 <div class="container">
     <div class="row">
-        @if (acceptedAdoptions.Count == 0)
+        @if (_acceptedAdoptions!.Count == 0)
         {
             <p>
                 There are no accepted adoptions.
             </p>
         }
-        @foreach (var adoption in acceptedAdoptions)
+        @foreach (var adoption in _acceptedAdoptions)
         {
             <PendingRequestCard Pet=@adoption.Item1 Adoption=@adoption.Item2 Decide=@false UpdatePage=@UpdatePage/>
         }
@@ -56,13 +53,13 @@
 <h3>Accepted Deliveries</h3>
 <div class="container">
     <div class="row">
-        @if (acceptedDeliveries.Count == 0)
+        @if (_acceptedDeliveries!.Count == 0)
         {
             <p>
                 There are no accepted deliveries.
             </p>
         }
-        @foreach (var delivery in acceptedDeliveries)
+        @foreach (var delivery in _acceptedDeliveries)
         {
             <PendingRequestCard Pet=@delivery.Item1 Delivery=@delivery.Item2 Decide=@false UpdatePage=@UpdatePage/>
         }
@@ -71,11 +68,10 @@
 
 @code {
 
-    private string? _userId;
-    private List<Tuple<Pet, PetAdoption>> requestedAdoptions;
-    private List<Tuple<Pet, Delivery>> requestedDeliveries;
-    private List<Tuple<Pet, PetAdoption>> acceptedAdoptions;
-    private List<Tuple<Pet, Delivery>> acceptedDeliveries;
+    private List<Tuple<Pet, PetAdoption>>? _requestedAdoptions;
+    private List<Tuple<Pet, Delivery>>? _requestedDeliveries;
+    private List<Tuple<Pet, PetAdoption>>? _acceptedAdoptions;
+    private List<Tuple<Pet, Delivery>>? _acceptedDeliveries;
 
 
     protected override Task OnInitializedAsync()
@@ -86,10 +82,10 @@
 
     public void UpdatePage()
     {
-        requestedAdoptions = PendingRequestsService.GetRequestedAdoptions();
-        requestedDeliveries = PendingRequestsService.GetRequestedDeliveries();
-        acceptedAdoptions = PendingRequestsService.GetAcceptedAdoptions();
-        acceptedDeliveries = PendingRequestsService.GetAcceptedDeliveries();
+        _requestedAdoptions = PendingRequestsService.GetRequestedAdoptions();
+        _requestedDeliveries = PendingRequestsService.GetRequestedDeliveries();
+        _acceptedAdoptions = PendingRequestsService.GetAcceptedAdoptions();
+        _acceptedDeliveries = PendingRequestsService.GetAcceptedDeliveries();
         StateHasChanged();
     }
 

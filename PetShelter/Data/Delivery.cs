@@ -11,9 +11,9 @@ public class Delivery
 
     public int NewPetId { get; set; }
 
-    [Required] [ValidateComplexType] public Pet NewPet { get; set; }
+    [Required] [ValidateComplexType] public Pet? NewPet { get; set; }
 
-    public string UserId { get; set; }
+    public string? UserId { get; set; }
 
     [Required] public DateTime DateOfDelivery { get; set; } = DateTime.Today;
 

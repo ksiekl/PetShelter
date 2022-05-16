@@ -10,11 +10,11 @@ public class PetAdoption
     public int Id { get; set; }
 
     public int PetId { get; set; }
-    public string UserId { get; set; }
+    public string? UserId { get; set; }
 
-    [Required] public string Forename { get; set; }
+    [Required] public string? Forename { get; set; }
 
-    [Required] public string Surname { get; set; }
+    [Required] public string? Surname { get; set; }
 
     [Required] public DateTime DateOfPickup { get; set; } = DateTime.Today;
 

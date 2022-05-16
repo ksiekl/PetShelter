@@ -9,7 +9,7 @@
 <PageTitle>View pets</PageTitle>
 
 
-@if (pets == null)
+@if (_pets == null)
 {
     <p>
         <em>Loading...</em>
@@ -19,11 +19,11 @@ else
 {
     <div class="container">
         <div class="row">
-            @foreach (var pet in pets)
+            @foreach (var pet in _pets)
             {
                 //If user already requested adoption of an animal,
                 //hide the card with the animal from Pet Display
-                if (usersAdoptionRequests.Select(animal => animal.Item1.Id).Contains(pet.Id))
+                if (_usersAdoptionRequests!.Select(animal => animal.Item1.Id).Contains(pet.Id))
                 {
                     continue;
                 }
@@ -34,19 +34,19 @@ else
 }
 
 @code {
-    private List<Pet>? pets;
-    private string? userId;
+    private List<Pet>? _pets;
+    private string? _userId;
 
-    private List<Tuple<Pet, Status>> usersAdoptionRequests;
+    private List<Tuple<Pet, Status>>? _usersAdoptionRequests;
 
     protected override async Task OnInitializedAsync()
     {
-        pets = await PetService.GetAvailablePets();
+        _pets = await PetService.GetAvailablePets();
         var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
-        userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
+        _userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
 
-        usersAdoptionRequests = UserRequestsService
-            .GetAdoptions(userId)
+        _usersAdoptionRequests = UserRequestsService
+            .GetAdoptions(_userId)
             .Where(p => p.Item2 != Status.Declined).ToList();
     }
 

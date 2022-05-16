@@ -3,7 +3,7 @@
 <h3>Adoption Request</h3>
 
 
-@inject PetService PetServicee
+@inject PetService PetService
 @inject AdoptionService AdoptionService
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject NavigationManager NavManager
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="col-3 row">
-            <img class="mx-auto row img-fluid" src="@pet.Picture" alt="Cool pet" style="width: 100%; object-fit: cover">
+            <img class="mx-auto row img-fluid" src="@AdoPet.Picture" alt="Cool pet" style="width: 100%; object-fit: cover">
         </div>
     </div>
     <br/>
@@ -48,15 +48,15 @@
     [Parameter]
     public int PetId { get; set; }
 
-    public string UserId { get; set; }
-    public Pet pet = new();
+    public string? UserId { get; set; }
+    public Pet AdoPet = new();
 
     protected override async void OnInitialized()
     {
         var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
         var userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
-        UserId = userId;
-        pet = PetServicee.GetOnePet(PetId);
+        UserId = userId!;
+        AdoPet = PetService.GetOnePet(PetId);
     }
 
     private async Task HandleValidSubmit()

@@ -28,21 +28,4 @@ public class UserRequestsService
             .ToList();
         return userDeliveries;
     }
-
-    // public Status GetRequestStatus<T>(T request)
-    // {
-    //     if (request?.GetType() == typeof(PetAdoption))
-    //     {
-    //         var req = request as PetAdoption;
-    //         return req!.Status;
-    //     }
-    //
-    //     if (request?.GetType() == typeof(Delivery))
-    //     {
-    //         var del = request as Delivery;
-    //         return del!.Status;
-    //     }
-    //
-    //     return Status.Unknown;
-    // }
 }

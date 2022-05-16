@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PLBl3PyYfzEM5dXnf9TGRcazeOwZW5A6krhiU1iD2BA=",
+  "Hash": "e1H+7F11NVjkC/ZgDUYmF9RBnDzex9wOTmhYhyy6Y70=",
   "Source": "PetShelter",
   "BasePath": "_content/PetShelter",
   "Mode": "Default",
@@ -1377,23 +1377,6 @@
       "OriginalItemSpec": "wwwroot/css/site.css"
     },
     {
-      "Identity": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/favicon.ico",
-      "SourceId": "PetShelter",
-      "SourceType": "Discovered",
-      "ContentRoot": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/",
-      "BasePath": "_content/PetShelter",
-      "RelativePath": "favicon.ico",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/favicon.ico"
-    },
-    {
       "Identity": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/Pets/Birds/Minnie.jpg",
       "SourceId": "PetShelter",
       "SourceType": "Discovered",
@@ -1647,6 +1630,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/Pets/promo3.jpeg"
+    },
+    {
+      "Identity": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/upload/dunco.jpg",
+      "SourceId": "PetShelter",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/katarina/RiderProjects/PetShelter/PetShelter/wwwroot/",
+      "BasePath": "_content/PetShelter",
+      "RelativePath": "upload/dunco.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/upload/dunco.jpg"
     }
   ]
 }

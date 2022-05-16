@@ -8,51 +8,42 @@
 <h2>My Requests</h2>
 
 
-@if (adoptions == null || deliveries == null)
-{
-    <p>
-        <em>Loading...</em>
-    </p>
-}
-else
-{
-    <h3>Adoptions</h3>
-    <div class="container">
-        <div class="row">
-            @if (adoptions.Count == 0)
-            {
-                <p>
-                    There are no requested adoptions.
-                </p>
-            }
-            @foreach (var pet in adoptions)
-            {
-                <UserRequestsCard Pet=pet.Item1 Status=pet.Item2/>
-            }
-        </div>
+<h3>Adoptions</h3>
+<div class="container">
+    <div class="row">
+        @if (_adoptions!.Count == 0)
+        {
+            <p>
+                There are no requested adoptions.
+            </p>
+        }
+        @foreach (var pet in _adoptions)
+        {
+            <UserRequestsCard Pet=@pet.Item1 Status=@pet.Item2/>
+        }
     </div>
-    <h3>Deliveries</h3>
-    <div class="container">
-        <div class="row">
-            @if (deliveries.Count == 0)
-            {
-                <p>
-                    There are no requested deliveries.
-                </p>
-            }
-            @foreach (var pet in deliveries)
-            {
-                <UserRequestsCard Pet=pet.Item1 Status=pet.Item2/>
-            }
-        </div>
+</div>
+<h3>Deliveries</h3>
+<div class="container">
+    <div class="row">
+        @if (_deliveries!.Count == 0)
+        {
+            <p>
+                There are no requested deliveries.
+            </p>
+        }
+        @foreach (var pet in _deliveries)
+        {
+            <UserRequestsCard Pet=@pet.Item1 Status=@pet.Item2/>
+        }
     </div>
-}
+</div>
 
 @code {
 
     private string? _userId;
-    private List<Tuple<Pet, Status>> adoptions;
-    private List<Tuple<Pet, Status>> deliveries;
+    private List<Tuple<Pet, Status>>? _adoptions;
+    private List<Tuple<Pet, Status>>? _deliveries;
 
 
     protected override async Task OnInitializedAsync()
@@ -60,9 +51,9 @@ else
         var user = (await GetAuthenticationStateAsync.GetAuthenticationStateAsync()).User;
         _userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
 
-        adoptions = UserRequestsService.GetAdoptions(_userId);
+        _adoptions = UserRequestsService.GetAdoptions(_userId);
 
-        deliveries = UserRequestsService.GetDeliveries(_userId);
+        _deliveries = UserRequestsService.GetDeliveries(_userId);
     }
 
 }
